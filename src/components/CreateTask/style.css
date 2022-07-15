@@ -1,0 +1,25 @@
+
+.input-task{
+padding: 3em;
+margin: 3em;
+display:flex;
+justify-content: center;
+}
+
+.input-task input[type=text]{
+    width: 30em;
+    height: 2.5em;
+    border: 0.2em solid rgb(74, 72, 72);
+    border-radius: 0.5em;
+   
+
+}
+
+.input-task input[type=submit]{
+    width: 4em;
+    height: 2.7em;
+    padding: 0.5em;
+    margin: 0.5em;
+   
+
+}

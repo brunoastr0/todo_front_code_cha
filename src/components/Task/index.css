@@ -1,0 +1,60 @@
+.data_element {
+    width: 100%;
+    font-size: 1em;
+    padding: 1em;
+    margin: 0.1em;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    text-align:initial;
+
+}
+
+
+
+
+.data_element div{
+    margin: 0.4em 1em;
+    
+}
+
+.data_element input{
+    margin: 0.4em 1em;
+}
+
+
+
+.box {
+    float: left;
+    width: 2em;
+}
+
+/*Style divs horizontally*/
+.box:nth-child(1) {
+    width: 50%;
+}
+
+.box:nth-child(2) {
+    width: 10%;
+}
+
+.box:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
+
+.box:nth-child(4) {
+    width: 10%;
+    text-align: center;
+}
+
+.box:nth-child(5) {
+    width: 10%;
+    text-align: center;
+}
+
+.box:nth-child(6) {
+    width: 10%;
+    text-align: center;
+}
