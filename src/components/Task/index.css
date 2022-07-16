@@ -24,6 +24,11 @@
 }
 
 
+.text-strike div{
+    text-decoration: line-through;
+}
+
+
 
 .box {
     float: left;

@@ -5,16 +5,19 @@ import './style.css'
 
 
 export default function ShowTask(props) {
-    const [data, setData] = useState([])
+
+    //Hooks
+    const [tasks, settasks] = useState([])
+
     useEffect(() => {
         fetchAllTasks()
-    })
+    }, [tasks])
 
+    //functions
     const fetchAllTasks = async () => {
         try {
-
             const { data } = await axios.get('http://localhost:3000/api/task')
-            setData(data);
+            settasks(data);
         }
         catch (err) {
             console.error(err);
@@ -25,16 +28,21 @@ export default function ShowTask(props) {
         try {
 
             const { data } = await axios.delete(`http://localhost:3000/api/task/${id}`)
-            setData(data);
+            settasks(data.filter(task => task.id !== id));
         }
         catch (err) {
             console.error(err);
-        }}
-    const taskData = data.map((data) => {
+        }
+        window.location("/")
+    }
+
+    //
+
+    const taskData = tasks.map((task) => {
         return (
             <>
                 <div>
-                    <Task data={data} deleteTask={deleteTask}/>
+                    <Task data={task} deleteTask={deleteTask} />
                 </div>
 
             </>
