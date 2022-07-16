@@ -1,14 +1,32 @@
 import './index.css'
-import { useState } from 'react'
 import axios from "axios"
 
 
 export default function Task(props) {
     const { id, description, completed } = props.data;
 
+    // const [descriptionEdit, setDescriptionEdit] = useState("")
+
+    // const handleEditButton = async (e) => {
+
+    //     e.preventDefault();
+    //     try {
+    //         await axios.put(`http://localhost:3000/api/task/${id}`, {
+    //             description: descriptionEdit
+    //         })
+
+    //     setData("")
+
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
+
+    // }
+
+
+   
 
     const taskCompleted = async (e) => {
-
 
         try {
             await axios.patch(`http://localhost:3000/api/task/complete/${id}`)
@@ -19,9 +37,6 @@ export default function Task(props) {
         }
 
     }
-
-
-
 
     const isCompletedClass = completed ? "text-strike" : ""
 
@@ -40,7 +55,12 @@ export default function Task(props) {
                     value="DELETE"
                     type="submit"
                     onClick={() => props.deleteTask(id)} />
-                <input className="box" value="EDIT" type="submit" />
+                <input 
+                className="box" 
+                value="EDIT" 
+                type="submit" 
+                //onclick = {handleEditButton(id)}
+                />
 
 
             </div>

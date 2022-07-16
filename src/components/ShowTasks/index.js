@@ -11,7 +11,7 @@ export default function ShowTask(props) {
 
     useEffect(() => {
         fetchAllTasks()
-    }, [tasks])
+    })
 
     //functions
     const fetchAllTasks = async () => {
@@ -35,6 +35,8 @@ export default function ShowTask(props) {
         }
         window.location("/")
     }
+
+    
 
     //
 

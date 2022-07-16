@@ -11,8 +11,6 @@
     border: none;
     border-bottom: 0.2em solid rgb(74, 72, 72);
     border-radius: 0.2em;
-    outline: none;
-  
 }
 
 .input-task input[type=submit] {

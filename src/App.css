@@ -6,3 +6,14 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+
+.App{
+  width: 35em;
+  height: fit-content;
+  border: 0.1em solid;
+  border-radius: 1em;
+  padding: 1.2em;
+  margin: 4em;
+  
+}

@@ -3,16 +3,16 @@ import axios from "axios";
 import "./style.css"
 
 
-export default function CreateTask(props) {
-    const [data, setData] = useState("")
+export default function EditTask(props) {
+    const [description, setDescription] = useState("")
 
-    const handleSubmit = async (e) => {
+    const handleEditBUtton = async (e) => {
 
 
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/api/task', {
-                description: data
+            await axios.put(`http://localhost:3000/api/task/${id}`, {
+                description: description
             })
 
         setData("")
@@ -28,9 +28,8 @@ export default function CreateTask(props) {
             <div className="input-task">
                 <form onSubmit={handleSubmit}>
                     <input
-                        placeholder="new task..."
                         type="text"
-                        value={data}
+                        value={description}
                         onChange={event => {
                             setData(event.target.value)
                         }}
