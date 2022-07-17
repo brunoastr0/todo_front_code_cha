@@ -5,15 +5,18 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-user-select: none;
   }
 
 
 .App{
-  width: 35em;
-  height: fit-content;
+  width: 50%;
+  height: 50em;
   border: 0.1em solid;
   border-radius: 1em;
   padding: 1.2em;
   margin: 4em;
+  position: relative;
+  left:25%
   
 }

@@ -6,18 +6,22 @@ import './style.css'
 
 export default function ShowTask(props) {
 
+
+
     //Hooks
     const [tasks, settasks] = useState([])
 
+
     useEffect(() => {
         fetchAllTasks()
-    })
+    }, [props.updateValue])
 
     //functions
     const fetchAllTasks = async () => {
         try {
             const { data } = await axios.get('http://localhost:3000/api/task')
             settasks(data);
+
         }
         catch (err) {
             console.error(err);
@@ -27,32 +31,49 @@ export default function ShowTask(props) {
     const deleteTask = async (id) => {
         try {
 
-            const { data } = await axios.delete(`http://localhost:3000/api/task/${id}`)
-            settasks(data.filter(task => task.id !== id));
+            await axios.delete(`http://localhost:3000/api/task/${id}`)
+
+            settasks(tasks.filter(task => task.id !== id));
+            props.setUpdateValue(props.updateValue + 1)
+
         }
         catch (err) {
             console.error(err);
         }
-        window.location("/")
+
     }
 
-    
 
-    //
+    console.log(tasks)
+    // tasks.map((task) => {
+    //     console.log(task)
+    // })
+
+
 
     const taskData = tasks.map((task) => {
+
         return (
             <>
                 <div>
-                    <Task data={task} deleteTask={deleteTask} />
+                    <Task
+                        key = {task.id}
+                        data={task}
+                        deleteTask={deleteTask}
+                        updateValue={props.updateValue}
+                        setUpdateValue={props.setUpdateValue}
+                    />
                 </div>
 
             </>
 
         )
     })
+
     return (
+
         <>
+
             <div className="task">
                 {taskData}
             </div>

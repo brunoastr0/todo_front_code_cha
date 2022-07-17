@@ -1,30 +1,35 @@
 .data_element {
-    width: 100%;
+
     font-size: 1em;
     padding: 1em;
-    margin: 0.1em;
+    margin: 0.4em 1em;
     transition: 0.2s;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     border: 1px solid black;
-    text-align:initial;
+    text-align: initial;
 
 }
 
 
 
 
-.data_element div{
-    margin: 0.4em 1em;
-    
+.hideInput {
+    outline: none;
+    border: 0px;
 }
 
-.data_element input{
-    margin: 0.4em 1em;
+.showInput {
+    border: 1px solid;
 }
 
 
-.text-strike div{
+
+.hideButton {
+    visibility: hidden;
+}
+
+.text-strike input[type=text] {
     text-decoration: line-through;
 }
 
@@ -37,11 +42,13 @@
 
 /*Style divs horizontally*/
 .box:nth-child(1) {
-    width: 50%;
+    width: 10%;
+    text-align: center;
 }
 
 .box:nth-child(2) {
-    width: 10%;
+    width: 50%;
+    text-align: center;
 }
 
 .box:nth-child(3) {
