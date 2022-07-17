@@ -6,7 +6,7 @@
     transition: 0.2s;
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     text-align: initial;
 
 }
@@ -35,6 +35,7 @@
 
 
 
+
 .box {
     float: left;
     width: 2em;
@@ -48,7 +49,7 @@
 
 .box:nth-child(2) {
     width: 50%;
-    text-align: center;
+    
 }
 
 .box:nth-child(3) {

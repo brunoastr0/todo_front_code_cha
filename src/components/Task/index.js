@@ -1,6 +1,8 @@
 import './index.css'
 import axios from "axios"
 import { useState } from 'react';
+import { FaTrash, FaPencilAlt } from 'react-icons/fa'
+
 
 
 export default function Task(props) {
@@ -8,12 +10,11 @@ export default function Task(props) {
     const [readOnlyState, setReadOnlyState] = useState(true)
     const [descriptionState, setDescriptionState] = useState(description)
 
-   console.log(description)
 
     const editTask = async (e) => {
         try {
-           
-             await axios.put(`http://localhost:3000/api/task/${id}`,
+
+            await axios.put(`http://localhost:3000/api/task/${id}`,
                 {
                     description: descriptionState
                 })
@@ -29,9 +30,9 @@ export default function Task(props) {
         if (!readOnlyState) {
             editTask()
             setReadOnlyState(true)
-            
-        }else
-        setReadOnlyState(false)
+
+        } else
+            setReadOnlyState(false)
 
     }
 
@@ -42,7 +43,7 @@ export default function Task(props) {
     }
 
     const taskCompleted = async (e) => {
-        
+
         try {
             await axios.patch(`http://localhost:3000/api/task/complete/${id}`)
             props.setUpdateValue(props.updateValue + 1)
@@ -64,32 +65,34 @@ export default function Task(props) {
             <div className={`data_element ${isCompletedClass}`} key={id} >
 
                 <input
-                    className = "box"
+                    className="box"
                     type="checkbox"
                     checked={completed}
                     onChange={taskCompleted}
                 />
 
                 <input
+                    id="description"
                     type="text"
                     className={`box ${readOnlyState ? 'hideInput' : 'showInput'}`}
-                    value={descriptionState}
+                    value={ `${descriptionState}`}
                     readOnly={readOnlyState}
                     onChange={(e) => { setDescriptionState(e.target.value) }}
                 />
 
-                <input
+                <button
                     className={`box ${readOnlyState ? '' : 'hideButton'}`}
-                    value="DELETE"
-                    type="submit"
-                    onClick={() => props.deleteTask(id)} />
-                <input
+                    onClick={() => props.deleteTask(id)} >
+
+                    <FaTrash color="red" />
+                </button>
+                <button
                     id="editInput"
                     className={`box ${!completed ? '' : 'hideButton'}`}
-                    value="EDIT"
-                    type="submit"
                     onClick={HandleEditTask}
-                />
+                >
+                    <FaPencilAlt />
+                </button>
 
                 <input
                     className={`box ${readOnlyState ? 'hideButton' : ''}`}
