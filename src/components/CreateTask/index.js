@@ -64,9 +64,9 @@ export default function CreateTask(props) {
 
             <div className="input-task">
 
-                <button id="btn-newTask"
+                <button 
                     onClick={() => setInputField(true)}
-                    className={`${inputField ? 'hide-btn' : ''}`}
+                    className={`${inputField ? 'hide-btn' : ''} btn-newTask`}
                 >
                     <FaPlus size={18} color={'rgba(41,147,189,1)'} /> Add task
                 </button>
@@ -85,10 +85,10 @@ export default function CreateTask(props) {
                         />
 
 
-                        <input
-                            type="submit"
-                            value="submit"
-                            onClick={handleSubmit} />
+                       
+                        <button onClick={handleSubmit} className="btn-newTask">
+                        <FaPlus size={18} color={'rgba(41,147,189,1)'} />
+                        </button>
                     </form>
 
 

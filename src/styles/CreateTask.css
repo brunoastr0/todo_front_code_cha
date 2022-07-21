@@ -24,7 +24,7 @@
 
 }
 
-#btn-newTask{
+.btn-newTask{
     margin: 0.2em;
     position: relative;
     left: 0%;
