@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Task from "../Task";
-import CreateTask from "../CreateTask";
 
-import './style.css'
+import "../../styles/ShowTask.css"
 
 
 export default function ShowTask(props) {
 
-
+    const { setUpdateValue, updateValue } = props
 
     //Hooks
     const [tasks, settasks] = useState([])
-    const [updateValue, setUpdateValue] = useState(0)
 
     useEffect(() => {
         fetchAllTasks()
@@ -21,8 +19,11 @@ export default function ShowTask(props) {
     //functions
     const fetchAllTasks = async () => {
         try {
-            const { data } = await axios.get('http://localhost:3000/api/task')
-            settasks(data);
+            const { data, status } = await axios.get('http://localhost:3000/api/task')
+            if (status === 201)
+                settasks(data);
+            else
+                console.log("Error")
 
         }
         catch (err) {
@@ -56,7 +57,7 @@ export default function ShowTask(props) {
             <>
                 <div>
                     <Task
-                        key = {task.id}
+                        key={task.id}
                         data={task}
                         deleteTask={deleteTask}
                         updateValue={updateValue}
@@ -72,12 +73,7 @@ export default function ShowTask(props) {
     return (
 
         <>
-
-            <div className="task">
-                <CreateTask setUpdateValue={setUpdateValue} updateValue={updateValue} />
-                {taskData}
-
-            </div>
+            <div className="task">{taskData}</div>
         </>
     )
 } 

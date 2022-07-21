@@ -10,20 +10,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
-  background: rgb(6,81,87);
-  background: linear-gradient(90deg, rgba(6,81,87,1) 21%, rgba(208,164,135,1) 49%, rgba(149,96,19,1) 78%); 
+  background: rgb(223,178,34);
+
 }
 
 
 .App {
   width: 50%;
-  height: 50em;
+  height: 50%;
   border: 0.1em solid white;
   border-radius: 1em;
   padding: 1.2em;
   margin: 4em;
   position: relative;
-  left: 25%;
+  left: 22.5%;
   background:white;
   box-shadow: 1px, 1px;
 }

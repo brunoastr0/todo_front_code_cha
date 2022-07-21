@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+  
 }
 
 .input-task #inputField{
@@ -27,6 +28,16 @@
     margin: 0.2em;
     position: relative;
     left: 0%;
+    border: none;
+    border-radius: 0.5em;
+    height: 40px;
+    font-size: 1.2em;
+    opacity: 0.8;
+    padding: 0.5em;
+}
+
+#btn-newTask:hover{
+    opacity: 1;
 }
 
 .hide-btn{

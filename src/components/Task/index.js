@@ -1,7 +1,7 @@
-import './index.css'
+import '../../styles/Task.css'
 import axios from "axios"
 import { useState } from 'react';
-import { FaTrash, FaPencilAlt } from 'react-icons/fa'
+import { FaPencilAlt, FaRegWindowClose } from 'react-icons/fa'
 
 
 
@@ -58,13 +58,14 @@ export default function Task(props) {
 
 
 
-    const isCompletedClass = completed ? "text-strike" : ""
+    const isCompletedClass = completed ? "text-strike task-complete" : ""
 
     return (
         <>
             <div className={`data_element ${isCompletedClass}`} key={id} >
 
                 <input
+                    id="check-box"
                     className="box"
                     type="checkbox"
                     checked={completed}
@@ -75,31 +76,34 @@ export default function Task(props) {
                     id="description"
                     type="text"
                     className={`box ${readOnlyState ? 'hideInput' : 'showInput'}`}
-                    value={ `${descriptionState}`}
+                    value={`${descriptionState}`}
                     readOnly={readOnlyState}
                     onChange={(e) => { setDescriptionState(e.target.value) }}
                 />
-
-                <button
-                    className={`box ${readOnlyState ? '' : 'hideButton'}`}
-                    onClick={() => props.deleteTask(id)} >
-
-                    <FaTrash color="red" />
-                </button>
                 <button
                     id="editInput"
-                    className={`box ${!completed ? '' : 'hideButton'}`}
+                    className={`box ${!completed ? '' : 'hideButton'} btn`}
                     onClick={HandleEditTask}
                 >
-                    <FaPencilAlt />
+                    <FaPencilAlt size={20} />
                 </button>
 
-                <input
-                    className={`box ${readOnlyState ? 'hideButton' : ''}`}
-                    value="cancel"
-                    type="submit"
+                <button
+                    className={`box ${readOnlyState ? 'hideButton' : ''} btn`}
                     onClick={cancelEdit}
-                />
+                >
+                    <FaRegWindowClose color="red" size={20} />
+
+                </button>
+
+
+                <button
+                    className={`box ${readOnlyState ? '' : 'hideButton'} btn`}
+                    onClick={() => props.deleteTask(id)} >
+
+                    <FaRegWindowClose color="gray" size={20} />
+                </button>
+
 
 
             </div>

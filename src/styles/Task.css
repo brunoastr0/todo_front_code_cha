@@ -8,6 +8,8 @@
     justify-content: space-between;
     border-bottom: 1px solid black;
     text-align: initial;
+    height: fit-content;
+    border-radius: 3px;
 
 }
 
@@ -33,6 +35,23 @@
     text-decoration: line-through;
 }
 
+.btn{
+    outline: none;
+    border: none;
+    background: none;
+   
+
+}
+
+.btn:hover{
+    color: blue;
+}
+
+
+.task-complete{
+    opacity: 0.5;
+}
+
 
 
 
@@ -43,31 +62,21 @@
 
 /*Style divs horizontally*/
 .box:nth-child(1) {
-    width: 10%;
-    text-align: center;
+    width: 5%;
+   
 }
 
 .box:nth-child(2) {
-    width: 50%;
+    width: 85%;
     
 }
 
 .box:nth-child(3) {
-    width: 10%;
-    text-align: center;
+    width: 5%;
+    
 }
 
 .box:nth-child(4) {
-    width: 10%;
-    text-align: center;
+    width: 5%;
 }
 
-.box:nth-child(5) {
-    width: 10%;
-    text-align: center;
-}
-
-.box:nth-child(6) {
-    width: 10%;
-    text-align: center;
-}
